@@ -19,6 +19,7 @@ const PortraitGalleryContainer = styled.section`
   min-height: 100vh;
   padding: ${({ theme }) => theme.spacing.xxl} ${({ theme }) => theme.spacing.xl};
   background: ${({ theme }) => theme.colors.museum.darkBackground};
+  overflow: visible;
   ${({ theme }) => museumLighting.ambientGlow(theme)}
   
   /* Enhanced lighting for portrait gallery */
@@ -214,19 +215,29 @@ const PortraitArtworkContainer = styled.div<{ $index: number; $isVisible: boolea
 
 // Gallery navigation label for portrait section
 const PortraitGalleryLabel = styled.div<{ $isVisible: boolean }>`
-  ${({ theme }) => museumTypography.galleryLabel(theme)}
   position: absolute;
-  right: 2rem;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
-  transform-origin: center;
+  transform-origin: center center;
   white-space: nowrap;
+  font-family: ${({ theme }) => theme.typography.fontFamily.body};
+  font-size: ${({ theme }) => theme.typography.fontSize.xs};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
   color: ${({ theme }) => theme.colors.museum.frameGold};
-  opacity: ${({ $isVisible }) => $isVisible ? 0.7 : 0};
+  opacity: ${({ $isVisible }) => $isVisible ? 0.6 : 0};
   transition: opacity 1s ease;
   transition-delay: 1s;
+  z-index: 5;
+  pointer-events: none;
   
   ${responsive.tablet`
+    display: none;
+  `}
+  
+  ${responsive.mobile`
     display: none;
   `}
 `;

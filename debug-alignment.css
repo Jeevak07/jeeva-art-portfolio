@@ -1,0 +1,54 @@
+/* 
+  DEBUG ALIGNMENT STYLES
+  Add this to your browser's developer tools to debug alignment issues
+  
+  Instructions:
+  1. Open browser developer tools (F12)
+  2. Go to Console tab
+  3. Paste this CSS and press Enter:
+*/
+
+/* Debug borders for portrait gallery */
+[data-testid="portrait-gallery"] {
+  border: 2px solid red !important;
+}
+
+[data-testid="portrait-gallery-content"] {
+  border: 2px solid blue !important;
+}
+
+[data-testid="portrait-artwork-grid"] {
+  border: 2px solid green !important;
+}
+
+[data-testid^="portrait-artwork-container"] {
+  border: 2px solid yellow !important;
+}
+
+/* Show the gallery label with a background */
+[data-testid="portrait-gallery"] > div > div:last-child {
+  background: rgba(255, 0, 0, 0.3) !important;
+  padding: 5px !important;
+}
+
+/* Grid debugging */
+[data-testid="portrait-artwork-grid"] {
+  background: rgba(0, 255, 0, 0.1) !important;
+}
+
+/* Container debugging */
+[data-testid="portrait-gallery-content"] {
+  background: rgba(0, 0, 255, 0.1) !important;
+}
+
+/*
+  To apply these styles in browser:
+  1. Copy the CSS rules above (without the comments)
+  2. In browser console, type:
+     
+     const style = document.createElement('style');
+     style.textContent = `[paste CSS here]`;
+     document.head.appendChild(style);
+     
+  3. This will show colored borders around each element to help identify alignment issues
+*/
