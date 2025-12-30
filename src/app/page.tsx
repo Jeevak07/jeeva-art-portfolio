@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { 
   MuseumLayout, 
   HeroSection, 
@@ -11,9 +11,9 @@ import {
   InteractiveViewer
 } from '@/components';
 import { GlassyNavbar } from '@/components/ui/GlassyNavbar';
+import { PerformanceOptimizer } from '@/components/PerformanceOptimizer';
 import { 
   sampleArtworks, 
-  sampleGallerySections, 
   sampleProcessSteps, 
   sampleContactMethods 
 } from '@/data/sampleArtworks';
@@ -113,7 +113,7 @@ export default function Home() {
   }, []);
 
   // Render section content based on section type
-  const renderSectionContent = useCallback((section: GallerySection, isActive: boolean, isVisible: boolean) => {
+  const renderSectionContent = useCallback((section: GallerySection) => {
     switch (section.id) {
       case 'hero':
         return <HeroSection />;
@@ -159,6 +159,9 @@ export default function Home() {
 
   return (
     <>
+      {/* Performance Optimizer */}
+      <PerformanceOptimizer />
+      
       {/* Glassy Sticky Navbar */}
       <GlassyNavbar />
       

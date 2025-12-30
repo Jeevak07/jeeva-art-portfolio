@@ -1,0 +1,130 @@
+/* Performance Optimizations */
+
+/* GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize repaints */
+.optimized-repaint {
+  contain: layout style paint;
+}
+
+/* Low-performance mode styles */
+.low-performance-mode * {
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+  will-change: auto !important;
+}
+
+.low-performance-mode .parallax-element {
+  transform: none !important;
+}
+
+.low-performance-mode .complex-animation {
+  display: none !important;
+}
+
+/* Smooth scrolling optimization */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Image loading optimization */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 200px;
+}
+
+/* Critical rendering path optimization */
+.above-fold {
+  content-visibility: visible;
+}
+
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Intersection observer optimization */
+.lazy-load {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduce layout thrashing */
+.no-layout-shift {
+  contain: layout;
+}
+
+/* Optimize text rendering */
+.optimized-text {
+  text-rendering: optimizeSpeed;
+  font-display: swap;
+}
+
+/* Reduce paint complexity */
+.simple-paint {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  .mobile-optimized * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Connection-based optimizations */
+@media (prefers-reduced-data) {
+  .data-saver {
+    background-image: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  .data-saver img {
+    display: none;
+  }
+  
+  .data-saver::after {
+    content: "Image hidden to save data";
+    display: block;
+    padding: 2rem;
+    text-align: center;
+    background: #333;
+    color: #fff;
+  }
+}

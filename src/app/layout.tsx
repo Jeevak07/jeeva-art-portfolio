@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { StyledComponentsProvider } from "@/components/providers/StyledComponentsProvider";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import { ErrorBoundaryProvider } from "@/components/providers/ErrorBoundaryProvider";
+import "@/styles/performance.css";
 
 const inter = Inter({
   subsets: ["latin"],

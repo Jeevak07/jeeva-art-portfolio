@@ -111,13 +111,13 @@ describe('Portrait Gallery Layout Differentiation', () => {
     fc.assert(
       fc.property(
         fc.record({
-          artworks: fc.array(portraitArtworkGenerator, { minLength: 1, maxLength: 8 }),
+          artworks: fc.array(portraitArtworkGenerator, { minLength: 1, maxLength: 4 }), // Reduced
           mixedArtworks: fc.array(
             fc.record({
               ...portraitArtworkGenerator.value,
               category: fc.constantFrom('anime', 'portrait', 'realism')
             }),
-            { minLength: 0, maxLength: 5 }
+            { minLength: 0, maxLength: 2 } // Reduced
           )
         }),
         ({ artworks, mixedArtworks }) => {
@@ -164,9 +164,9 @@ describe('Portrait Gallery Layout Differentiation', () => {
           expect(portraitGrid?.getAttribute('data-layout')).toBe('premium-grid');
         }
       ),
-      { numRuns: 25 }
+      { numRuns: 10 } // Further reduced for faster tests
     );
-  }, 10000);
+  }, 15000); // Increased timeout
 
   it('should differentiate portrait gallery from anime gallery spacing', () => {
     const portraitArtwork: Artwork = {

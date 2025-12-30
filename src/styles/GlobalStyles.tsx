@@ -30,10 +30,11 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     padding-top: 80px; /* Space for sticky navbar */
     
-    /* Museum ambient lighting effect */
+    /* Museum ambient lighting effect - OPTIMIZED */
+    /* Remove background-attachment: fixed for better performance */
     background-image: ${({ theme }) => theme.lighting.ambient};
-    background-attachment: fixed;
     background-size: 100% 100%;
+    background-repeat: no-repeat;
     
     /* Mobile optimizations */
     @media (max-width: 768px) {
@@ -195,8 +196,9 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  /* Smooth transitions for theme changes */
-  * {
+  /* Smooth transitions for theme changes - OPTIMIZED */
+  /* Remove universal selector and target specific elements only */
+  .theme-transition {
     transition: background-color ${({ theme }) => theme.animation.duration.normal} ${({ theme }) => theme.animation.easing.easeOut},
                 color ${({ theme }) => theme.animation.duration.normal} ${({ theme }) => theme.animation.easing.easeOut},
                 border-color ${({ theme }) => theme.animation.duration.normal} ${({ theme }) => theme.animation.easing.easeOut};
