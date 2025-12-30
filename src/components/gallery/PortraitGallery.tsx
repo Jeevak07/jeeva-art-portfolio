@@ -117,6 +117,8 @@ const PortraitArtworkGrid = styled.div<{ $isVisible: boolean }>`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: ${({ theme }) => theme.spacing.xxl};
   justify-items: center;
+  align-items: start;
+  width: 100%;
   opacity: ${({ $isVisible }) => $isVisible ? 1 : 0};
   transform: translateY(${({ $isVisible }) => $isVisible ? '0' : '20px'});
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -124,19 +126,23 @@ const PortraitArtworkGrid = styled.div<{ $isVisible: boolean }>`
   
   /* Ensure maximum 2 columns on desktop for premium feel */
   ${responsive.desktop`
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(300px, 400px));
     max-width: 900px;
     margin: 0 auto;
+    justify-content: center;
   `}
   
   ${responsive.tablet`
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
     gap: 2.5rem;
+    justify-content: center;
   `}
   
   ${responsive.mobile`
     grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
   `}
 `;
 
@@ -145,6 +151,7 @@ const PortraitArtworkContainer = styled.div<{ $index: number; $isVisible: boolea
   position: relative;
   width: 100%;
   max-width: 400px;
+  margin: 0 auto;
   opacity: ${({ $isVisible }) => $isVisible ? 1 : 0};
   transform: translateY(${({ $isVisible }) => $isVisible ? '0' : '25px'});
   transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -198,6 +205,11 @@ const PortraitArtworkContainer = styled.div<{ $index: number; $isVisible: boolea
   ${({ $isVisible }) => !$isVisible && `
     filter: blur(3px);
   `}
+  
+  /* Ensure proper centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 // Gallery navigation label for portrait section

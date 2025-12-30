@@ -30,12 +30,14 @@ const ArtworkContainer = styled.div<{
 }>`
   position: relative;
   width: 100%;
+  max-width: 100%;
   aspect-ratio: ${({ $size }) => 
     $size === 'small' ? '3/4' : 
     $size === 'large' ? '4/5' : '3/4'
   };
   overflow: hidden;
   cursor: ${({ $interactive }) => $interactive ? 'pointer' : 'default'};
+  margin: 0 auto;
   
   ${({ theme }) => museumFraming.elegant(theme)}
   ${({ $interactive, theme, $isOptimized }) => 
