@@ -196,6 +196,13 @@ export const GlassyNavbar: React.FC<NavbarProps> = ({ className }) => {
             Home
           </NavLink>
           <NavLink
+            onClick={() => scrollToSection('featured')}
+            whileHover={{ y: -2 }}
+            whileTap={{ y: 0 }}
+          >
+            Featured
+          </NavLink>
+          <NavLink
             onClick={() => scrollToSection('anime-gallery')}
             whileHover={{ y: -2 }}
             whileTap={{ y: 0 }}
@@ -243,6 +250,9 @@ export const GlassyNavbar: React.FC<NavbarProps> = ({ className }) => {
           >
             <MobileNavLink onClick={() => scrollToSection('hero')}>
               Home
+            </MobileNavLink>
+            <MobileNavLink onClick={() => scrollToSection('featured')}>
+              Featured
             </MobileNavLink>
             <MobileNavLink onClick={() => scrollToSection('anime-gallery')}>
               Anime Gallery

@@ -11,6 +11,7 @@ import {
   InteractiveViewer
 } from '@/components';
 import { GlassyNavbar } from '@/components/ui/GlassyNavbar';
+import { FeaturedArtworks } from '@/components/ui/FeaturedArtworks';
 import { PerformanceOptimizer } from '@/components/PerformanceOptimizer';
 import { 
   sampleArtworks, 
@@ -33,6 +34,19 @@ export default function Home() {
     {
       id: 'hero',
       name: 'Museum Entrance',
+      theme: {
+        backgroundColor: '#0a0a0a',
+        accentColor: '#c9a96e',
+        spacing: 32,
+        columns: { mobile: 1, tablet: 1, desktop: 1 }
+      },
+      artworks: [],
+      layout: 'linear',
+      spacing: 'comfortable'
+    },
+    {
+      id: 'featured',
+      name: 'Featured Artworks',
       theme: {
         backgroundColor: '#0a0a0a',
         accentColor: '#c9a96e',
@@ -117,6 +131,14 @@ export default function Home() {
     switch (section.id) {
       case 'hero':
         return <HeroSection />;
+        
+      case 'featured':
+        return (
+          <FeaturedArtworks
+            artworks={sampleArtworks}
+            onArtworkClick={handleArtworkClick}
+          />
+        );
         
       case 'anime-gallery':
         return (

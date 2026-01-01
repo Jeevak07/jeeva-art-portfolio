@@ -44,13 +44,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
       <body>
-        <ErrorBoundaryProvider>
-          <StyledComponentsProvider>
+        <StyledComponentsProvider>
+          <ErrorBoundaryProvider>
             <LenisProvider>
               {children}
             </LenisProvider>
-          </StyledComponentsProvider>
-        </ErrorBoundaryProvider>
+          </ErrorBoundaryProvider>
+        </StyledComponentsProvider>
       </body>
     </html>
   );
